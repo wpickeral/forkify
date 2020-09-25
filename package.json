@@ -4,7 +4,9 @@
   "description": "forkify project",
   "main": "index.js",
   "dependencies": {
-    "@types/lodash": "^4.14.161"
+    "@types/lodash": "^4.14.161",
+    "axios": "^0.20.0",
+    "number-formatter": "^1.2.0"
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.5.0",

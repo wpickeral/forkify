@@ -36,6 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _a;
 import Search from './models/Search';
+import * as searchView from './views/searchView';
+import { elements } from './views/base';
 /** Global state of the app
  * - Search object
  * - Current recipe object
@@ -48,7 +50,7 @@ var controlSearch = function () { return __awaiter(void 0, void 0, void 0, funct
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                query = 'pizza';
+                query = searchView.getInput();
                 if (!query) return [3 /*break*/, 2];
                 // 2) New Search object and add to state
                 state.search = new Search(query);
@@ -60,13 +62,13 @@ var controlSearch = function () { return __awaiter(void 0, void 0, void 0, funct
                 // 4) Search for recipes
                 _a.sent();
                 // 5) render results on UI
-                console.log(state.search.result);
+                searchView.renderResults(state.search.result);
                 _a.label = 2;
             case 2: return [2 /*return*/];
         }
     });
 }); };
-(_a = document.querySelector('.search')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', function (e) {
+(_a = elements.searchForm) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', function (e) {
     e.preventDefault();
     controlSearch();
 });

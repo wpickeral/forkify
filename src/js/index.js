@@ -55,10 +55,11 @@ var controlSearch = function () { return __awaiter(void 0, void 0, void 0, funct
                 // 2) New Search object and add to state
                 state.search = new Search(query);
                 // 3) Prepare UI for results
+                searchView.clearInput();
+                searchView.clearResults();
                 // 4) Search for recipes
                 return [4 /*yield*/, state.search.getResults()];
             case 1:
-                // 3) Prepare UI for results
                 // 4) Search for recipes
                 _a.sent();
                 // 5) render results on UI

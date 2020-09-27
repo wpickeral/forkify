@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _a;
 import Search from './models/Search';
 import * as searchView from './views/searchView';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 /** Global state of the app
  * - Search object
  * - Current recipe object
@@ -57,12 +57,14 @@ var controlSearch = function () { return __awaiter(void 0, void 0, void 0, funct
                 // 3) Prepare UI for results
                 searchView.clearInput();
                 searchView.clearResults();
+                renderLoader(elements.searchRes);
                 // 4) Search for recipes
                 return [4 /*yield*/, state.search.getResults()];
             case 1:
                 // 4) Search for recipes
                 _a.sent();
                 // 5) render results on UI
+                clearLoader();
                 searchView.renderResults(state.search.result);
                 _a.label = 2;
             case 2: return [2 /*return*/];
